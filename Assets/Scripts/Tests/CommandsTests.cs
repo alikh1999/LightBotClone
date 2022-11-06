@@ -27,7 +27,7 @@ namespace LogiBotClone.Runtime.Tests
         [TestCase( NeighborTile.Down)]
         [TestCase( NeighborTile.Right)]
         [TestCase( NeighborTile.Left)]
-        public void Should_Move_To_Neighbor_Tile_Similar_Height(NeighborTile targetTitle)
+        public void Should_Move_To_Neighbor_Tile_Similar_Height_With_Move_Command(NeighborTile targetTitle)
         {
             var currentTileGameObject = new GameObject("currentTileGameObject");
             var currentTileTile = currentTileGameObject.AddComponent<Tile>();
@@ -69,7 +69,7 @@ namespace LogiBotClone.Runtime.Tests
         [TestCase( NeighborTile.Down)]
         [TestCase( NeighborTile.Right)]
         [TestCase( NeighborTile.Left)]
-        public void Should_Not_Move_To_Neighbor_Tile_With_Different_Height(NeighborTile targetTitle)
+        public void Should_Not_Move_To_Neighbor_Tile_With_Different_HeightWith_Move_Command(NeighborTile targetTitle)
         {
             var currentTileGameObject = new GameObject("currentTileGameObject");
             var currentTileTile = currentTileGameObject.AddComponent<Tile>();
@@ -111,6 +111,22 @@ namespace LogiBotClone.Runtime.Tests
             Debug.Log(_executor.Tile.gameObject.name);
             
             Assert.IsTrue(_executor.Tile.gameObject.name == "currentTileGameObject");
+        }
+
+        [Test]
+        public void Should_Rotate_90_Degree_To_Left_With_Rotate_To_Left_Command()
+        {
+            _executor.Execute(new RotateToLeft());
+            
+            Assert.IsTrue(_executorAgent.transform.eulerAngles.z == 90);
+        }
+        
+        [Test]
+        public void Should_Rotate_90_Degree_To_Right_With_Rotate_To_Right_Command()
+        {
+            _executor.Execute(new RotateToRight());
+            
+            Assert.IsTrue(_executorAgent.transform.eulerAngles.z == 270);
         }
     }
 }

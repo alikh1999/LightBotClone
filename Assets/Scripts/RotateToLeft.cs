@@ -7,7 +7,7 @@ namespace LogiBotClone.Runtime
     {
         public void Execute(Tile tile, Transform player)
         {
-            
+            player.Rotate(Vector3.forward, 90);
         }
     }
 }
