@@ -1,11 +1,14 @@
-﻿public struct Angle
+﻿namespace LogiBotClone.Runtime
 {
-    public float Value => _value;
-
-    private float _value;
-
-    public Angle(float angle)
+    public struct Angle
     {
-        _value = angle;
+        public float Value => _value;
+
+        private float _value;
+
+        public Angle(float angle)
+        {
+            _value = angle;
+        }
     }
 }

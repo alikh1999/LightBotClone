@@ -1,10 +1,13 @@
 ﻿using UnityEngine;
 using UnityEngine.Tilemaps;
 
-public class RotateToRight : ICommand
+namespace LogiBotClone.Runtime
 {
-    public void Execute(Tile tile, Transform player)
+    public class RotateToRight : ICommand
     {
-            
+        public void Execute(Tile tile, Transform player)
+        {
+
+        }
     }
 }

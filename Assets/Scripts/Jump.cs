@@ -1,10 +1,12 @@
 ﻿using UnityEngine;
-using UnityEngine.Tilemaps;
 
-public class Jump : ICommand
+namespace LogiBotClone.Runtime
 {
-    public void Execute(Tile tile, Transform player)
+    public class Jump : ICommand
     {
-        throw new System.NotImplementedException();
+        public void Execute(Tile tile, Transform player)
+        {
+            
+        }
     }
 }

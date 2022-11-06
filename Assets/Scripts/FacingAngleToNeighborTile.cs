@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace DefaultNamespace
+namespace LogiBotClone.Runtime
 {
     public static class FacingAngleToNeighborTile
     {
@@ -11,10 +11,10 @@ namespace DefaultNamespace
         private static readonly Dictionary<Angle, NeighborTile> angleToNeighborTileDiciDictionary =
             new Dictionary<Angle, NeighborTile>
             {
-                {new Angle(0), NeighborTile.Up},
-                {new Angle(180), NeighborTile.Down},
+                {new Angle(0), NeighborTile.Right},
                 {new Angle(90), NeighborTile.Up},
-                {new Angle(90), NeighborTile.Up}
+                {new Angle(180), NeighborTile.Left},
+                {new Angle(270), NeighborTile.Down}
             };
     }
 }
