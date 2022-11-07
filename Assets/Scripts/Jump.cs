@@ -6,7 +6,18 @@ namespace LogiBotClone.Runtime
     {
         public void Execute(Tile tile, Transform player)
         {
+            var neighborTile =
+                FacingAngleToNeighborTile.AngleToNeighborTileDiciDictionary[new Angle(player.localEulerAngles.z)];
+
+            var targetTile = tile.GetNeighborTile(neighborTile);
+            var executor = player.GetComponent<Executor>();
+
+            if (targetTile == null || executor.Tile.Height == targetTile.Height)
+            {
+                return;
+            }
             
+            executor.OwnTile(targetTile);
         }
     }
 }
