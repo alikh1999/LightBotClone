@@ -1,0 +1,16 @@
+{
+    "name": "LogiBotClone.Runtime.UI",
+    "rootNamespace": "LogiBotClone.Runtime.UI",
+    "references": [
+        "GUID:c6e3f0e5d64e7e94dac7ef94612eea3b"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
