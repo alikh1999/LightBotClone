@@ -29,9 +29,9 @@ namespace LogiBotClone.Runtime.Tests
 
         [Test]
         [TestCase(NeighborTile.Up)]
-        [TestCase( NeighborTile.Down)]
-        [TestCase( NeighborTile.Right)]
-        [TestCase( NeighborTile.Left)]
+        [TestCase(NeighborTile.Down)]
+        [TestCase(NeighborTile.Right)]
+        [TestCase(NeighborTile.Left)]
         public void Should_Move_To_Neighbor_Tile_Same_Height_With_Move_Command(NeighborTile targetTitle)
         {
             var currentTileGameObject = new GameObject("currentTileGameObject");
@@ -71,9 +71,9 @@ namespace LogiBotClone.Runtime.Tests
 
         [Test]
         [TestCase(NeighborTile.Up)]
-        [TestCase( NeighborTile.Down)]
-        [TestCase( NeighborTile.Right)]
-        [TestCase( NeighborTile.Left)]
+        [TestCase(NeighborTile.Down)]
+        [TestCase(NeighborTile.Right)]
+        [TestCase(NeighborTile.Left)]
         public void Should_Not_Move_To_Neighbor_Tile_With_Different_Height_With_Move_Command(NeighborTile targetTitle)
         {
             var currentTileGameObject = new GameObject("currentTileGameObject");
@@ -151,9 +151,9 @@ namespace LogiBotClone.Runtime.Tests
         
         [Test]
         [TestCase(NeighborTile.Up)]
-        [TestCase( NeighborTile.Down)]
-        [TestCase( NeighborTile.Right)]
-        [TestCase( NeighborTile.Left)]
+        [TestCase(NeighborTile.Down)]
+        [TestCase(NeighborTile.Right)]
+        [TestCase(NeighborTile.Left)]
         public void Should_Move_To_Neighbor_Tile_Different_Height_With_Jump_Command(NeighborTile targetTitle)
         {
             var currentTileGameObject = new GameObject("currentTileGameObject");
@@ -198,9 +198,9 @@ namespace LogiBotClone.Runtime.Tests
         
         [Test]
         [TestCase(NeighborTile.Up)]
-        [TestCase( NeighborTile.Down)]
-        [TestCase( NeighborTile.Right)]
-        [TestCase( NeighborTile.Left)]
+        [TestCase(NeighborTile.Down)]
+        [TestCase(NeighborTile.Right)]
+        [TestCase(NeighborTile.Left)]
         public void Should_Not_Move_To_Neighbor_Tile_Same_Height_With_Jump_Command(NeighborTile targetTitle)
         {
             var currentTileGameObject = new GameObject("currentTileGameObject");
@@ -245,9 +245,9 @@ namespace LogiBotClone.Runtime.Tests
         
         [Test]
         [TestCase(NeighborTile.Up)]
-        [TestCase( NeighborTile.Down)]
-        [TestCase( NeighborTile.Right)]
-        [TestCase( NeighborTile.Left)]
+        [TestCase(NeighborTile.Down)]
+        [TestCase(NeighborTile.Right)]
+        [TestCase(NeighborTile.Left)]
         public void Should_Not_Move_To_Neighbor_Tile_Does_Not_Exist_With_Jump_Command(NeighborTile targetTitle)
         {
             var currentTileGameObject = new GameObject("currentTileGameObject");
@@ -278,7 +278,7 @@ namespace LogiBotClone.Runtime.Tests
         }
 
         [Test]
-        public void Should_HighLight_Goal_Tile_When_Owner_Own_Tile_Goal()
+        public void Should_HighLight_Goal_Tile_When_Owner_Own_Goal_Tile()
         {
             var currentTileGameObject = new GameObject("currentTileGameObject");
             var currentTileTile = currentTileGameObject.AddComponent<TileGoal>();

@@ -11,22 +11,24 @@ namespace LogiBotClone.Runtime.World
         
         private int _unHighLightedGoalTilesCount;
 
-        private List<TileGoal> goalTiles = new List<TileGoal>();
+        private List<TileGoal> TilesGoal = new List<TileGoal>();
 
         private void Awake()
         {
-            goalTiles = FindObjectsOfType<TileGoal>().ToList();
+            TilesGoal = FindObjectsOfType<TileGoal>().ToList();
         }
 
-        public void AddGoalTile(TileGoal tileGoal)
+        public void AddTileGoal(TileGoal tileGoal)
         {
-            goalTiles.Add(tileGoal);
+            TilesGoal.Add(tileGoal);
+            tileGoal.TileHighLighted += OnGoalTileHighLighted;
+            _unHighLightedGoalTilesCount++;
         }
 
         private void Start()
         {
-            _unHighLightedGoalTilesCount = goalTiles.Count;
-            foreach (var goalTile in goalTiles)
+            _unHighLightedGoalTilesCount = TilesGoal.Count;
+            foreach (var goalTile in TilesGoal)
             {
                 goalTile.TileHighLighted += OnGoalTileHighLighted;
             }
@@ -34,7 +36,7 @@ namespace LogiBotClone.Runtime.World
 
         private void OnDestroy()
         {
-            foreach (var goalTile in goalTiles)
+            foreach (var goalTile in TilesGoal)
             {
                 goalTile.TileHighLighted -= OnGoalTileHighLighted;
             }
