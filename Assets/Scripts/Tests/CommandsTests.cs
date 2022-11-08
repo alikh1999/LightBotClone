@@ -275,12 +275,12 @@ namespace LogiBotClone.Runtime.Tests
         }
 
         [Test]
-        public void Should_HighLight_Goal_Tile_When_Owner_Own_Goal_Tile()
+        public void Should_HighLight_Goal_Tile_When_Owner_Own_Tile_Goal()
         {
             var currentTileGameObject = new GameObject("currentTileGameObject");
-            var currentTileTile = currentTileGameObject.AddComponent<GoalTile>();
+            var currentTileTile = currentTileGameObject.AddComponent<TileGoal>();
             currentTileTile.SetHeight(0);
-            var goalTile = currentTileGameObject.GetComponent<GoalTile>();
+            var goalTile = currentTileGameObject.GetComponent<TileGoal>();
             bool wasHighLighted = false;
             goalTile.TileHighLighted += () =>
             {

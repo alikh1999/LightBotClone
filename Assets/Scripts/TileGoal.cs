@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 namespace LogiBotClone.Runtime
 {
-    public class GoalTile : Tile
+    public class TileGoal : Tile
     {
         public event Action TileHighLighted;
         public bool WasHighLighted => _wasHighLighted;

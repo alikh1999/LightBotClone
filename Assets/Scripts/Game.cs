@@ -11,16 +11,16 @@ namespace LogiBotClone.Runtime
         
         private int _unHighLightedGoalTilesCount;
 
-        private List<GoalTile> goalTiles = new List<GoalTile>();
+        private List<TileGoal> goalTiles = new List<TileGoal>();
 
         private void Awake()
         {
-            goalTiles = FindObjectsOfType<GoalTile>().ToList();
+            goalTiles = FindObjectsOfType<TileGoal>().ToList();
         }
 
-        public void AddGoalTile(GoalTile goalTile)
+        public void AddGoalTile(TileGoal tileGoal)
         {
-            goalTiles.Add(goalTile);
+            goalTiles.Add(tileGoal);
         }
 
         private void Start()
