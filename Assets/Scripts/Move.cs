@@ -12,12 +12,12 @@ namespace LogiBotClone.Runtime
             var targetTile = tile.GetNeighborTile(neighborTile);
             var executor = player.GetComponent<Executor>();
 
-            if (targetTile == null || executor.Tile.Height != targetTile.Height)
+            if (targetTile == null || executor.TileOwner.Tile.Height != targetTile.Height)
             {
                 return;
             }
             
-            executor.OwnTile(targetTile);
+            executor.TileOwner.OwnTile(targetTile);
         }
     }
 }

@@ -1,22 +1,23 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace LogiBotClone.Runtime
 {
     public class Executor : MonoBehaviour
     {
-        public Tile Tile => _tile;
+        public TileOwner TileOwner => _Owner;
         
-        private Tile _tile;
+        [SerializeField] 
+        private TileOwner _Owner;
+
+        public void Init(TileOwner tileOwner)
+        {
+            _Owner = tileOwner;
+        }
         
         public void Execute(ICommand command)
         {
-            command.Execute(_tile, transform);
-        }
-
-        public void OwnTile(Tile tile)
-        {
-            _tile = tile;
-            transform.position = tile.transform.position;
+            command.Execute(_Owner.Tile, transform);
         }
     }
 }

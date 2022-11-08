@@ -1,5 +1,4 @@
-﻿using System;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using UnityEngine;
 
 namespace LogiBotClone.Runtime.Tests
@@ -13,7 +12,9 @@ namespace LogiBotClone.Runtime.Tests
         public void SetUp()
         {
             _executorAgent = new GameObject();
+            var tileOwner = _executorAgent.AddComponent<TileOwner>();
             _executor = _executorAgent.AddComponent<Executor>();
+            _executor.Init(tileOwner);
         }
 
         [TearDown]
@@ -58,10 +59,10 @@ namespace LogiBotClone.Runtime.Tests
                     break;
             }
 
-            _executor.OwnTile(currentTileTile);
+            _executor.TileOwner.OwnTile(currentTileTile);
             _executor.Execute(new Move());
 
-            Assert.IsTrue(_executor.Tile.gameObject.name == "0");
+            Assert.IsTrue(_executor.TileOwner.Tile.gameObject.name == "0");
         }
 
         [Test]
@@ -105,10 +106,10 @@ namespace LogiBotClone.Runtime.Tests
                     break;
             }
 
-            _executor.OwnTile(currentTileTile);
+            _executor.TileOwner.OwnTile(currentTileTile);
             _executor.Execute(new Move());
 
-            Assert.IsTrue(_executor.Tile.gameObject.name == "currentTileGameObject");
+            Assert.IsTrue(_executor.TileOwner.Tile.gameObject.name == "currentTileGameObject");
         }
 
         [Test]
@@ -138,12 +139,10 @@ namespace LogiBotClone.Runtime.Tests
             
             currentTileTile.SetUp(null, null, null, null);
 
-            _executor.OwnTile(currentTileTile);
-            Debug.Log(_executor.Tile.gameObject.name);
+            _executor.TileOwner.OwnTile(currentTileTile);
             _executor.Execute(new Move());
-            Debug.Log(_executor.Tile.gameObject.name);
-            
-            Assert.IsTrue(_executor.Tile.gameObject.name == "currentTileGameObject");
+
+            Assert.IsTrue(_executor.TileOwner.Tile.gameObject.name == "currentTileGameObject");
         }
         
         [Test]
@@ -187,10 +186,10 @@ namespace LogiBotClone.Runtime.Tests
                     break;
             }
 
-            _executor.OwnTile(currentTileTile);
+            _executor.TileOwner.OwnTile(currentTileTile);
             _executor.Execute(new Jump());
 
-            Assert.IsTrue(_executor.Tile.gameObject.name == "0");
+            Assert.IsTrue(_executor.TileOwner.Tile.gameObject.name == "0");
         }
         
         [Test]
@@ -234,10 +233,10 @@ namespace LogiBotClone.Runtime.Tests
                     break;
             }
 
-            _executor.OwnTile(currentTileTile);
+            _executor.TileOwner.OwnTile(currentTileTile);
             _executor.Execute(new Jump());
 
-            Assert.IsTrue(_executor.Tile.gameObject.name == "currentTileGameObject");
+            Assert.IsTrue(_executor.TileOwner.Tile.gameObject.name == "currentTileGameObject");
         }
         
         [Test]
@@ -268,10 +267,10 @@ namespace LogiBotClone.Runtime.Tests
             currentTileTile.SetUp(null, null, null, null);
             
             
-            _executor.OwnTile(currentTileTile);
+            _executor.TileOwner.OwnTile(currentTileTile);
             _executor.Execute(new Jump());
 
-            Assert.IsTrue(_executor.Tile.gameObject.name == "currentTileGameObject");
+            Assert.IsTrue(_executor.TileOwner.Tile.gameObject.name == "currentTileGameObject");
         }
         
         [Test]
