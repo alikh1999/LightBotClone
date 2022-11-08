@@ -1,5 +1,6 @@
 ﻿using NUnit.Framework;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace LogiBotClone.Runtime.Tests
 {
@@ -271,6 +272,25 @@ namespace LogiBotClone.Runtime.Tests
             _executor.Execute(new Jump());
 
             Assert.IsTrue(_executor.TileOwner.Tile.gameObject.name == "currentTileGameObject");
+        }
+
+        [Test]
+        public void Should_HighLight_Goal_Tile_When_Owner_Own_Goal_Tile()
+        {
+            var currentTileGameObject = new GameObject("currentTileGameObject");
+            var currentTileTile = currentTileGameObject.AddComponent<GoalTile>();
+            currentTileTile.SetHeight(0);
+            var goalTile = currentTileGameObject.GetComponent<GoalTile>();
+            bool wasHighLighted = false;
+            goalTile.TileHighLighted += () =>
+            {
+                wasHighLighted = true;
+            };
+
+            _executor.TileOwner.OwnTile(goalTile);
+            _executor.Execute(new HighLight());
+            
+            Assert.True(wasHighLighted);
         }
         
         [Test]
