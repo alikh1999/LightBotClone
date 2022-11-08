@@ -5,9 +5,9 @@ namespace LogiBotClone.Runtime.UI.CommandPanel
 {
     public class CommandViewFactory : MonoBehaviour
     {
-        public ICommandView Create(GameObject gameObject, Transform parent)
+        public ICommandView Create(GameObject gameObject)
         {
-            var createdObject = Instantiate(gameObject, parent);
+            var createdObject = Instantiate(gameObject);
 
             return createdObject.GetComponent<ICommandView>();
         }

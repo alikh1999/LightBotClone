@@ -1,15 +1,27 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
+using LogiBotClone.Runtime.UI.Command;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 namespace LogiBotClone.Runtime.UI.CommandPanel
 {
     public class CommandPanelsView : MonoBehaviour, ICommandPanelsView
     {
-        public IReadOnlyList<Button> AddCommandButtons { get; }
-        public void AddCommand()
+        public IReadOnlyList<ICommandPanelView> PanelViews
         {
-            throw new System.NotImplementedException();
+            get;
+        }
+
+        private List<ICommandPanelView> panelViews;
+        
+        private void Awake()
+        {
+            panelViews = GetComponentsInChildren<ICommandPanelView>(true).ToList();
+        }
+
+        public void AddCommand(ICommandView commandView, int panelIndex)
+        {
+            panelViews[panelIndex].AddCommand(commandView);
         }
     }
 }

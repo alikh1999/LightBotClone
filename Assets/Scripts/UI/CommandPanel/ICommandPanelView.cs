@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using LogiBotClone.Runtime.UI.Command;
+using UnityEngine.UI;
 
 namespace LogiBotClone.Runtime.UI.CommandPanel
 {
@@ -9,12 +10,17 @@ namespace LogiBotClone.Runtime.UI.CommandPanel
         {
             get;
         }
+
+        Button Button
+        {
+            get;
+        }
         
         IReadOnlyList<ICommandView> _CommandViews
         {
             get;
         }
 
-        void AddCommand();
+        void AddCommand(ICommandView commandView);
     }
 }

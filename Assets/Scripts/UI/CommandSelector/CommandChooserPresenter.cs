@@ -6,7 +6,7 @@ namespace LogiBotClone.Runtime.UI.CommandSelector
 {
     public class CommandChooserPresenter : MonoBehaviour
     {
-        public event Action<ICommandView> CommandSelected; 
+        public event Action<ICommandView> CommandChose; 
 
         private ICommandChooserView _view;
 
@@ -19,7 +19,7 @@ namespace LogiBotClone.Runtime.UI.CommandSelector
         {
             foreach (var view in _view.Views)
             {
-                view.Button.clicked += () => { OnCommandButtonPressed(view); };
+                view.Button.onClick.AddListener( ()=> OnCommandButtonPressed(view));
             }
         }
 
@@ -27,13 +27,13 @@ namespace LogiBotClone.Runtime.UI.CommandSelector
         {
             foreach (var view in _view.Views)
             {
-                view.Button.clicked -= () => { OnCommandButtonPressed(view); };
+                view.Button.onClick.RemoveAllListeners();
             }
         }
 
         private void OnCommandButtonPressed(ICommandView commandView)
         {
-            CommandSelected?.Invoke(commandView);
+            CommandChose?.Invoke(commandView);
         }
     }
 }
