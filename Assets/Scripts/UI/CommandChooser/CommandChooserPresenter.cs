@@ -1,5 +1,7 @@
 ﻿using System;
+using LogiBotClone.Runtime.Data;
 using LogiBotClone.Runtime.UI.Command;
+using LogiBotClone.Runtime.Utili;
 using UnityEngine;
 
 namespace LogiBotClone.Runtime.UI.CommandChooser
@@ -10,10 +12,16 @@ namespace LogiBotClone.Runtime.UI.CommandChooser
         public event Action ExecuteAllCommandsButtonClicked;
 
         private ICommandChooserView _view;
+        private string _currentLevelName;
 
         private void Awake()
         {
             _view = GetComponentInChildren<ICommandChooserView>(true);
+        }
+
+        private void Start()
+        {
+            _currentLevelName = PlayerPrefs.GetInt(PlayerPrefKeys.LevelNumber).ToString();
         }
 
         private void OnEnable()
@@ -24,6 +32,7 @@ namespace LogiBotClone.Runtime.UI.CommandChooser
             }
 
             _view.ExecuteAllCommandsButton.onClick.AddListener(() => ExecuteAllCommandsButtonClicked?.Invoke());
+            _view.RestartLevelButton.onClick.AddListener(OnLevelRestartButtonPressed);
         }
 
         private void OnDisable()
@@ -34,11 +43,17 @@ namespace LogiBotClone.Runtime.UI.CommandChooser
             }
             
             _view.ExecuteAllCommandsButton.onClick.RemoveAllListeners();
+            _view.RestartLevelButton.onClick.RemoveAllListeners();
         }
 
         private void OnCommandButtonPressed(ICommandView commandView)
         {
             CommandChose?.Invoke(commandView);
+        }
+
+        private void OnLevelRestartButtonPressed()
+        {
+            SceneLoader.Load(_currentLevelName);
         }
     }
 }

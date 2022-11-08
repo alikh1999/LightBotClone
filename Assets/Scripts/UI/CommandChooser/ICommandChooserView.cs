@@ -15,5 +15,10 @@ namespace LogiBotClone.Runtime.UI.CommandChooser
         {
             get;
         }
+
+        Button RestartLevelButton
+        {
+            get;
+        }
     }
 }

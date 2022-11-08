@@ -10,9 +10,12 @@ namespace LogiBotClone.Runtime.UI.CommandChooser
     {
         public IReadOnlyList<ICommandView> Views => views;
         public Button ExecuteAllCommandsButton => _executeButton;
+        public Button RestartLevelButton => _restartButton;
 
         [SerializeField]
         private Button _executeButton;
+        [SerializeField] 
+        private Button _restartButton;
         
         private List<ICommandView> views = new List<ICommandView>();
 
