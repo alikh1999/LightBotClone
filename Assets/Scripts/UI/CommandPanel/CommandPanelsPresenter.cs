@@ -76,7 +76,7 @@ namespace LogiBotClone.Runtime.UI.CommandPanel
                 {
                     foreach (var command in commandsContainer.Commands)
                     {
-                        _executor.Execute(command);
+                        _executor.Execute(command.Command);
                     }
 
                     break;
