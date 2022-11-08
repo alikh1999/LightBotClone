@@ -6,6 +6,7 @@ namespace LogiBotClone.Runtime
     {
         public Tile Tile => _tile;
         
+        [SerializeField]
         private Tile _tile;
         
         public void OwnTile(Tile tile)

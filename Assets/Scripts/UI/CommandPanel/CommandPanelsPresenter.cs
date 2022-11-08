@@ -10,6 +10,8 @@ namespace LogiBotClone.Runtime.UI.CommandPanel
         private CommandChooserPresenter _CommandChooserPresenter;
         [SerializeField] 
         private CommandViewFactory _factory;
+        [SerializeField] 
+        private Executor _executor;
 
         private ICommandPanelsView _view;
         private int _commandPanelIndex;
@@ -27,6 +29,7 @@ namespace LogiBotClone.Runtime.UI.CommandPanel
             }
 
             _CommandChooserPresenter.CommandChose += OnCommandChose;
+            _CommandChooserPresenter.ExecuteAllCommandsButtonClicked += OnExecuteAllCommandsButtonClicked;
         }
 
         private void OnDisable()
@@ -37,6 +40,7 @@ namespace LogiBotClone.Runtime.UI.CommandPanel
             }
             
             _CommandChooserPresenter.CommandChose -= OnCommandChose;
+            _CommandChooserPresenter.ExecuteAllCommandsButtonClicked -= OnExecuteAllCommandsButtonClicked;
         }
 
         private void OnPanelClicked(int panelIndex)
@@ -50,6 +54,33 @@ namespace LogiBotClone.Runtime.UI.CommandPanel
             _view.AddCommand(commandView1, _commandPanelIndex);
             
             commandView1.Button.onClick.AddListener(() => OnCommandRemove(commandView));
+        }
+
+        private void OnExecuteAllCommandsButtonClicked()
+        {
+            foreach (var commandView in _view.PanelViews[0]._CommandViews)
+            {
+                ProcessCommandView(commandView);
+            }
+        }
+
+        private void ProcessCommandView(ICommandView commandView)
+        {
+            switch (commandView)
+            {
+                case LogiBotClone.Runtime.UI.Command.ICommand commandView1:
+                    _executor.Execute(commandView1.Command);
+                    break;
+                case ICommandList commandsContainer:
+                {
+                    foreach (var command in commandsContainer.Commands)
+                    {
+                        _executor.Execute(command);
+                    }
+
+                    break;
+                }
+            }
         }
 
         private void OnCommandRemove(ICommandView commandView)
