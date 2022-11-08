@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
-using UnityEngine.UI;
+using LogiBotClone.Runtime.UI.Command;
 
 namespace LogiBotClone.Runtime.UI.CommandSelector
 {
-    public interface ICommandSelectorView
+    public interface ICommandChooserView
     {
-        IReadOnlyList<Button> Buttons
+        IReadOnlyList<ICommandView> Views
         {
             get;
         }
