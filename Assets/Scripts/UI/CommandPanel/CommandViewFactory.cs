@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using LogiBotClone.Runtime.UI.Command;
+using UnityEngine;
 
 namespace LogiBotClone.Runtime.UI.CommandPanel
 {

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using LogiBotClone.Runtime.UI.Command;
 
 namespace LogiBotClone.Runtime.UI.CommandPanel
 {

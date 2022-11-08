@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UIElements;
 
-namespace LogiBotClone.Runtime.UI.CommandPanel
+namespace LogiBotClone.Runtime.UI.Command
 {
     public interface ICommandView
     {
