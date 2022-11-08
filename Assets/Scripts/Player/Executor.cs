@@ -1,7 +1,7 @@
-﻿using System;
+﻿using LogiBotClone.Runtime.Commands;
 using UnityEngine;
 
-namespace LogiBotClone.Runtime
+namespace LogiBotClone.Runtime.Player
 {
     public class Executor : MonoBehaviour
     {

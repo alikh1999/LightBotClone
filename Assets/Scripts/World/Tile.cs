@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace LogiBotClone.Runtime
+namespace LogiBotClone.Runtime.World
 {
     public class Tile : MonoBehaviour
     {

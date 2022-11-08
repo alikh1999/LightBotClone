@@ -1,8 +1,10 @@
-﻿using UnityEngine;
+using LogiBotClone.Runtime.Player;
+using LogiBotClone.Runtime.World;
+using UnityEngine;
 
-namespace LogiBotClone.Runtime
+namespace LogiBotClone.Runtime.Commands
 {
-    public class Jump : ICommand
+    public class Move : ICommand
     {
         public void Execute(Tile tile, Transform player)
         {
@@ -12,7 +14,7 @@ namespace LogiBotClone.Runtime
             var targetTile = tile.GetNeighborTile(neighborTile);
             var executor = player.GetComponent<Executor>();
 
-            if (targetTile == null || executor.TileOwner.Tile.Height == targetTile.Height)
+            if (targetTile == null || executor.TileOwner.Tile.Height != targetTile.Height)
             {
                 return;
             }

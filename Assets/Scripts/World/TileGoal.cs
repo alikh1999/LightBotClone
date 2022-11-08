@@ -1,7 +1,6 @@
 ﻿using System;
-using UnityEngine.UI;
 
-namespace LogiBotClone.Runtime
+namespace LogiBotClone.Runtime.World
 {
     public class TileGoal : Tile
     {

@@ -1,4 +1,5 @@
-﻿using LogiBotClone.Runtime.UI.Command;
+﻿using LogiBotClone.Runtime.Player;
+using LogiBotClone.Runtime.UI.Command;
 using LogiBotClone.Runtime.UI.CommandChooser;
 using UnityEngine;
 

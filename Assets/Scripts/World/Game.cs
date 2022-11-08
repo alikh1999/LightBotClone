@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-namespace LogiBotClone.Runtime
+namespace LogiBotClone.Runtime.World
 {
     public class Game : MonoBehaviour
     {

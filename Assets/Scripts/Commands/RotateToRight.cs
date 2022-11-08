@@ -1,6 +1,7 @@
-﻿using UnityEngine;
+﻿using LogiBotClone.Runtime.World;
+using UnityEngine;
 
-namespace LogiBotClone.Runtime
+namespace LogiBotClone.Runtime.Commands
 {
     public class RotateToRight : ICommand
     {
