@@ -3,7 +3,7 @@ using System.Linq;
 using LogiBotClone.Runtime.UI.Command;
 using UnityEngine;
 
-namespace LogiBotClone.Runtime.UI.CommandSelector
+namespace LogiBotClone.Runtime.UI.CommandChooser
 {
     public class CommandChooserView : MonoBehaviour, ICommandChooserView
     {
