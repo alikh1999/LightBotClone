@@ -7,14 +7,10 @@ namespace LogiBotClone.Runtime.UI.CommandPanel
 {
     public class CommandPanelsView : MonoBehaviour, ICommandPanelsView
     {
-        public IReadOnlyList<ICommandPanelView> PanelViews => panelViews;
+        public IReadOnlyList<ICommandPanelView> PanelViews => panelViews ??= GetComponentsInChildren<ICommandPanelView>(true).ToList();
 
         private List<ICommandPanelView> panelViews;
         
-        private void Awake()
-        {
-            panelViews = GetComponentsInChildren<ICommandPanelView>(true).ToList();
-        }
 
         public void AddCommand(ICommandView commandView, int panelIndex)
         {
