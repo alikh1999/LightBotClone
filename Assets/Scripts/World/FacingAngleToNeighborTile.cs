@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace LogiBotClone.Runtime
+namespace LogiBotClone.Runtime.World
 {
     public static class FacingAngleToNeighborTile
     {

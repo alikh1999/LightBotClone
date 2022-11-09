@@ -1,4 +1,4 @@
-﻿namespace LogiBotClone.Runtime
+﻿namespace LogiBotClone.Runtime.World
 {
     public struct Angle
     {
