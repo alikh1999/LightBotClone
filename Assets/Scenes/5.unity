@@ -180,7 +180,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4836152195418725388, guid: d759fe855e30d474bad57ca25ecb8279, type: 3}
       propertyPath: _height
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4836152195418725388, guid: d759fe855e30d474bad57ca25ecb8279, type: 3}
       propertyPath: _upTile
@@ -502,7 +502,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4836152195418725388, guid: d759fe855e30d474bad57ca25ecb8279, type: 3}
       propertyPath: _height
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4836152195418725388, guid: d759fe855e30d474bad57ca25ecb8279, type: 3}
       propertyPath: _upTile
@@ -595,7 +595,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4836152195418725388, guid: d759fe855e30d474bad57ca25ecb8279, type: 3}
       propertyPath: _height
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4836152195418725388, guid: d759fe855e30d474bad57ca25ecb8279, type: 3}
       propertyPath: _upTile
@@ -786,6 +786,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 1391480800}
     m_Modifications:
     - target: {fileID: 13369302474281194, guid: 307fdb1044320c9459cb7d6ef2b2164f, type: 3}
+      propertyPath: _height
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 13369302474281194, guid: 307fdb1044320c9459cb7d6ef2b2164f, type: 3}
       propertyPath: _upTile
       value: 
       objectReference: {fileID: 791962802}
@@ -960,7 +964,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4836152195418725388, guid: d759fe855e30d474bad57ca25ecb8279, type: 3}
       propertyPath: _height
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4836152195418725388, guid: d759fe855e30d474bad57ca25ecb8279, type: 3}
       propertyPath: _upTile
@@ -1013,19 +1017,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3207697354312742282, guid: 231e9a2e2406fb742a9b374d8133ece5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.07
+      value: -0.08
       objectReference: {fileID: 0}
     - target: {fileID: 3207697354312742282, guid: 231e9a2e2406fb742a9b374d8133ece5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.16582349
+      value: -1.85
       objectReference: {fileID: 0}
     - target: {fileID: 3207697354312742282, guid: 231e9a2e2406fb742a9b374d8133ece5, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 13.041553
+      value: 12.88
       objectReference: {fileID: 0}
     - target: {fileID: 3207697354312742282, guid: 231e9a2e2406fb742a9b374d8133ece5, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.7071068
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 3207697354312742282, guid: 231e9a2e2406fb742a9b374d8133ece5, type: 3}
       propertyPath: m_LocalRotation.x
@@ -1033,7 +1037,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3207697354312742282, guid: 231e9a2e2406fb742a9b374d8133ece5, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3207697354312742282, guid: 231e9a2e2406fb742a9b374d8133ece5, type: 3}
       propertyPath: m_LocalRotation.z
@@ -1049,7 +1053,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3207697354312742282, guid: 231e9a2e2406fb742a9b374d8133ece5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 270
+      value: 90
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 231e9a2e2406fb742a9b374d8133ece5, type: 3}
@@ -1076,6 +1080,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1391480800}
     m_Modifications:
+    - target: {fileID: 13369302474281194, guid: 307fdb1044320c9459cb7d6ef2b2164f, type: 3}
+      propertyPath: _height
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 13369302474281194, guid: 307fdb1044320c9459cb7d6ef2b2164f, type: 3}
       propertyPath: _upTile
       value: 
