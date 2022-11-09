@@ -10,7 +10,7 @@ namespace LogiBotClone.Runtime.UI.Command
     {
         public Button Button => _Button;
         public GameObject GameObject => gameObject;
-        public IReadOnlyList<ICommand> Commands => _panelView._CommandViews.Select(x => x as ICommand).ToList();
+        public IReadOnlyList<ICommand> Commands => _panelView.CommandViews.Select(x => x as ICommand).ToList();
         
         [SerializeField]
         private Button _Button;

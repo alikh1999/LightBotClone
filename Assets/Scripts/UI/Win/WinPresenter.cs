@@ -1,15 +1,17 @@
 ﻿using LogiBotClone.Runtime.Data;
 using LogiBotClone.Runtime.Utili;
+using LogiBotClone.Runtime.World;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 namespace LogiBotClone.Runtime.UI.Win
 {
     public class WinPresenter : MonoBehaviour
     {
         private IWinView _view;
-
         private int _levelNumber;
+
+        [SerializeField] 
+        private Game _game;
 
         private void Awake()
         {
@@ -24,11 +26,13 @@ namespace LogiBotClone.Runtime.UI.Win
         private void OnEnable()
         {
             _view.NextLevelButton.onClick.AddListener(OnNextLevelClicked);
+            _game.GameEnded += OnGameEnded;
         }
 
         private void OnDisable()
         {
             _view.NextLevelButton.onClick.RemoveAllListeners();
+            _game.GameEnded -= OnGameEnded;
         }
 
         private void OnNextLevelClicked()
@@ -39,6 +43,11 @@ namespace LogiBotClone.Runtime.UI.Win
             PlayerPrefs.Save();
             
             SceneLoader.Load(nextSceneName);
+        }
+
+        private void OnGameEnded()
+        {
+            _view.SetActive(true);
         }
     }
 }

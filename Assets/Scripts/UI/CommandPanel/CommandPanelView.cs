@@ -10,8 +10,8 @@ namespace LogiBotClone.Runtime.UI.CommandPanel
     {
         public int CommandPanelIndex => _commandPanelIndex;
         public Button Button => _button;
-        
-        public IReadOnlyList<ICommandView> _CommandViews { get; }
+
+        public IReadOnlyList<ICommandView> CommandViews => commandViews;
 
         [SerializeField]
         private int _commandPanelIndex;
@@ -30,6 +30,7 @@ namespace LogiBotClone.Runtime.UI.CommandPanel
         public void AddCommand(ICommandView commandView)
         {
             commandView.GameObject.transform.SetParent(_gridParent);
+            commandViews.Add(commandView);
         }
     }
 }

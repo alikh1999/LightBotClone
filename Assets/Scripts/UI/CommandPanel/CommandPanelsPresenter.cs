@@ -16,14 +16,12 @@ namespace LogiBotClone.Runtime.UI.CommandPanel
 
         private ICommandPanelsView _view;
         private int _commandPanelIndex;
-
-        private void Awake()
-        {
-            _view = GetComponentInChildren<ICommandPanelsView>(true);
-        }
-
+        
         private void OnEnable()
         {
+            _view ??= GetComponentInChildren<ICommandPanelsView>(true);
+            
+            
             foreach (var panelView in _view.PanelViews)
             {
                 panelView.Button.onClick.AddListener(() => OnPanelClicked(panelView.CommandPanelIndex));
@@ -59,7 +57,7 @@ namespace LogiBotClone.Runtime.UI.CommandPanel
 
         private void OnExecuteAllCommandsButtonClicked()
         {
-            foreach (var commandView in _view.PanelViews[0]._CommandViews)
+            foreach (var commandView in _view.PanelViews[0].CommandViews)
             {
                 ProcessCommandView(commandView);
             }

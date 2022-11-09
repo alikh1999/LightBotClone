@@ -1,4 +1,5 @@
 ﻿using System;
+using UnityEngine;
 
 namespace LogiBotClone.Runtime.World
 {
@@ -9,10 +10,19 @@ namespace LogiBotClone.Runtime.World
 
         private bool _wasHighLighted;
 
+        [SerializeField]
+        private SpriteRenderer _spriteRenderer;
+        [SerializeField] 
+        private Color _hightLightColor;
+
         public void HighLight()
         {
             _wasHighLighted = true;
             TileHighLighted?.Invoke();
+            if (_spriteRenderer != null)
+            {
+                _spriteRenderer.color = _hightLightColor;
+            }
         }
     }
 }

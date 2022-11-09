@@ -16,7 +16,7 @@ namespace LogiBotClone.Runtime.UI.CommandPanel
             get;
         }
         
-        IReadOnlyList<ICommandView> _CommandViews
+        IReadOnlyList<ICommandView> CommandViews
         {
             get;
         }
