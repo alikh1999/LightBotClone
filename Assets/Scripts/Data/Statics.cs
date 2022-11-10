@@ -1,7 +1,13 @@
-﻿namespace LogiBotClone.Runtime.Data
+﻿using UnityEngine;
+
+namespace LogiBotClone.Runtime.Data
 {
-    public static class Statics
+    [CreateAssetMenu(menuName = "ScriptableObjects/Statics", fileName ="Statics" )]
+    public class Statics : ScriptableObject
     {
-        public static readonly int LevelsCount = 9;
+        public int LevelsCount => _levelsCount;
+
+        [SerializeField] 
+        private int _levelsCount;
     }
 }

@@ -11,6 +11,8 @@ namespace LogiBotClone.Runtime.UI.Win
         private int _levelNumber;
 
         [SerializeField] 
+        private Statics _statics;
+        [SerializeField] 
         private Game _game;
 
         private void Awake()
@@ -40,7 +42,7 @@ namespace LogiBotClone.Runtime.UI.Win
             _levelNumber++;
             var nextSceneName = _levelNumber.ToString();
 
-            if (_levelNumber >= Statics.LevelsCount)
+            if (_levelNumber >= _statics.LevelsCount)
             {
                 return;
             }
