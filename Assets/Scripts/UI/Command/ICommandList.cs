@@ -4,7 +4,7 @@ namespace LogiBotClone.Runtime.UI.Command
 {
     public interface ICommandList : ICommandView
     {
-        IReadOnlyList<ICommand> Commands
+        int CommandPanelIndex
         {
             get;
         }

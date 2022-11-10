@@ -72,9 +72,9 @@ namespace LogiBotClone.Runtime.UI.CommandPanel
                     break;
                 case ICommandList commandsContainer:
                 {
-                    foreach (var command in commandsContainer.Commands)
+                    foreach (var commandView1 in _view.PanelViews[commandsContainer.CommandPanelIndex].CommandViews)
                     {
-                        _executor.Execute(command.Command);
+                        ProcessCommandView(commandView1);
                     }
 
                     break;
