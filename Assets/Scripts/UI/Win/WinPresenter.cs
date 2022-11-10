@@ -37,8 +37,8 @@ namespace LogiBotClone.Runtime.UI.Win
 
         private void OnNextLevelClicked()
         {
-            var nextSceneName = _levelNumber.ToString();
             _levelNumber++;
+            var nextSceneName = _levelNumber.ToString();
 
             if (_levelNumber >= Statics.LevelsCount)
             {
