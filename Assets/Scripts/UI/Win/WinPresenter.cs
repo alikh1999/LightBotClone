@@ -39,6 +39,12 @@ namespace LogiBotClone.Runtime.UI.Win
         {
             var nextSceneName = _levelNumber.ToString();
             _levelNumber++;
+
+            if (_levelNumber >= Statics.LevelsCount)
+            {
+                return;
+            }
+            
             PlayerPrefs.SetInt(PlayerPrefKeys.LevelNumber, _levelNumber);
             PlayerPrefs.Save();
             

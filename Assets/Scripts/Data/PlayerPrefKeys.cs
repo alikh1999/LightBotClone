@@ -2,6 +2,6 @@
 {
     public static class PlayerPrefKeys
     {
-        public const string LevelNumber = "LevelNumber";
+        public static readonly string LevelNumber = "LevelNumber";
     }
 }
