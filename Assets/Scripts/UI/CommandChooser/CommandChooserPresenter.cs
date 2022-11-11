@@ -21,7 +21,7 @@ namespace LogiBotClone.Runtime.UI.CommandChooser
 
         private void Start()
         {
-            _currentLevelName = PlayerPrefs.GetInt(PlayerPrefKeys.LevelNumber).ToString();
+            _currentLevelName = PlayerPrefs.HasKey(PlayerPrefKeys.LevelNumber) ? PlayerPrefs.GetInt(PlayerPrefKeys.LevelNumber).ToString() : 1.ToString();
         }
 
         private void OnEnable()

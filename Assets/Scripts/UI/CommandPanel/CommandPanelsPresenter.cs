@@ -15,7 +15,7 @@ namespace LogiBotClone.Runtime.UI.CommandPanel
         private Executor _executor;
 
         private ICommandPanelsView _view;
-        private int _commandPanelIndex;
+        private int _currentCommandPanelIndex;
         
         private void OnEnable()
         {
@@ -44,13 +44,13 @@ namespace LogiBotClone.Runtime.UI.CommandPanel
 
         private void OnPanelClicked(int panelIndex)
         {
-            _commandPanelIndex = panelIndex;
+            _currentCommandPanelIndex = panelIndex;
         }
 
         private void OnCommandChose(ICommandView commandView)
         {
             var commandView1 = _factory.Create(commandView.GameObject);
-            _view.AddCommand(commandView1, _commandPanelIndex);
+            _view.AddCommand(commandView1, _currentCommandPanelIndex);
             
             commandView1.Button.onClick.AddListener(() => OnCommandRemove(commandView1));
         }
