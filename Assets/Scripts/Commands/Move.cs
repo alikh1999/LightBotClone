@@ -9,7 +9,7 @@ namespace LogiBotClone.Runtime.Commands
         public void Execute(Tile tile, Transform player)
         {
             var neighborTile =
-                FacingAngleToNeighborTile.AngleToNeighborTileDiciDictionary[new Angle(player.localEulerAngles.z)];
+                FacingAngleToNeighborTile.AngleToNeighborTileDictionary[new Angle(player.localEulerAngles.z)];
 
             var targetTile = tile.GetNeighborTile(neighborTile);
             var executor = player.GetComponent<Executor>();

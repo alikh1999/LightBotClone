@@ -5,10 +5,10 @@ namespace LogiBotClone.Runtime.World
     public static class FacingAngleToNeighborTile
     {
         public static IReadOnlyDictionary<Angle, NeighborTile>
-            AngleToNeighborTileDiciDictionary => angleToNeighborTileDiciDictionary;
+            AngleToNeighborTileDictionary => angleToNeighborTileDictionary;
 
 
-        private static readonly Dictionary<Angle, NeighborTile> angleToNeighborTileDiciDictionary =
+        private static readonly Dictionary<Angle, NeighborTile> angleToNeighborTileDictionary =
             new Dictionary<Angle, NeighborTile>
             {
                 {new Angle(0), NeighborTile.Right},
