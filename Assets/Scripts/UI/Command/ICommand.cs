@@ -4,7 +4,7 @@ namespace LogiBotClone.Runtime.UI.Command
 {
     public interface ICommand : ICommandView
     {
-        Commands.ICommand Command
+        global::LogiBotClone.Runtime.Core.Commands.ICommand Command
         {
             get;
         }

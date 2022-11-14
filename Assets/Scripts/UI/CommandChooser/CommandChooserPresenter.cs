@@ -1,7 +1,7 @@
 ﻿using System;
-using LogiBotClone.Runtime.Data;
+using LogiBotClone.Runtime.Core.Data;
+using LogiBotClone.Runtime.Core.Utili;
 using LogiBotClone.Runtime.UI.Command;
-using LogiBotClone.Runtime.Utili;
 using UnityEngine;
 
 namespace LogiBotClone.Runtime.UI.CommandChooser

@@ -1,6 +1,6 @@
-﻿using LogiBotClone.Runtime.Data;
-using LogiBotClone.Runtime.Utili;
-using LogiBotClone.Runtime.World;
+﻿using LogiBotClone.Runtime.Core.Data;
+using LogiBotClone.Runtime.Core.Utili;
+using LogiBotClone.Runtime.Core.World;
 using UnityEngine;
 
 namespace LogiBotClone.Runtime.UI.Win
