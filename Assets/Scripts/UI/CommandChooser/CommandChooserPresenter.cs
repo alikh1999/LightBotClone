@@ -31,8 +31,8 @@ namespace LogiBotClone.Runtime.UI.CommandChooser
                 view.ButtonClicked += ()=> OnCommandButtonPressed(view);
             }
 
-            _view.ExecuteAllCommandsButton.onClick.AddListener(() => ExecuteAllCommandsButtonClicked?.Invoke());
-            _view.RestartLevelButton.onClick.AddListener(OnLevelRestartButtonPressed);
+            _view.ExecuteAllCommandsButtonClicked += () => ExecuteAllCommandsButtonClicked?.Invoke();
+            _view.RestartButtonClicked += OnLevelRestartButtonPressed;
         }
 
         private void OnDisable()
@@ -42,8 +42,8 @@ namespace LogiBotClone.Runtime.UI.CommandChooser
                 view.ButtonClicked -= ()=> OnCommandButtonPressed(view);
             }
             
-            _view.ExecuteAllCommandsButton.onClick.RemoveAllListeners();
-            _view.RestartLevelButton.onClick.RemoveAllListeners();
+            _view.ExecuteAllCommandsButtonClicked -= () => ExecuteAllCommandsButtonClicked?.Invoke();
+            _view.RestartButtonClicked -= OnLevelRestartButtonPressed;
         }
 
         private void OnCommandButtonPressed(ICommandView commandView)

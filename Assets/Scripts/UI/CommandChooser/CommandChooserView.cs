@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using LogiBotClone.Runtime.UI.Command;
 using UnityEngine;
@@ -9,8 +10,8 @@ namespace LogiBotClone.Runtime.UI.CommandChooser
     public class CommandChooserView : MonoBehaviour, ICommandChooserView
     {
         public IReadOnlyList<ICommandView> Views => views;
-        public Button ExecuteAllCommandsButton => _executeButton;
-        public Button RestartLevelButton => _restartButton;
+        public event Action ExecuteAllCommandsButtonClicked;
+        public event Action RestartButtonClicked;
 
         [SerializeField]
         private Button _executeButton;
@@ -22,6 +23,28 @@ namespace LogiBotClone.Runtime.UI.CommandChooser
         private void Awake()
         {
             views = GetComponentsInChildren<ICommandView>(true).ToList();
+        }
+
+        private void OnEnable()
+        {
+            _restartButton.onClick.AddListener(RestartButtonClickedFunc);
+            _executeButton.onClick.AddListener(ExecuteButtonClicked);
+        }
+
+        private void OnDisable()
+        {
+            _restartButton.onClick.RemoveAllListeners();
+            _executeButton.onClick.RemoveAllListeners();
+        }
+
+        private void ExecuteButtonClicked()
+        {
+            ExecuteAllCommandsButtonClicked?.Invoke();
+        }
+
+        private void RestartButtonClickedFunc()
+        {
+            RestartButtonClicked?.Invoke();
         }
     }
 }

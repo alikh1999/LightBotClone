@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using LogiBotClone.Runtime.UI.Command;
 using UnityEngine.UI;
 
@@ -11,14 +12,7 @@ namespace LogiBotClone.Runtime.UI.CommandChooser
             get;
         }
 
-        Button ExecuteAllCommandsButton
-        {
-            get;
-        }
-
-        Button RestartLevelButton
-        {
-            get;
-        }
+        event Action ExecuteAllCommandsButtonClicked;
+        event Action RestartButtonClicked;
     }
 }
