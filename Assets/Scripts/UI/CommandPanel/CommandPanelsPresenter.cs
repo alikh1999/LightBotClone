@@ -24,7 +24,7 @@ namespace LogiBotClone.Runtime.UI.CommandPanel
             
             foreach (var panelView in _view.PanelViews)
             {
-                panelView.Button.onClick.AddListener(() => OnPanelClicked(panelView.CommandPanelIndex));
+                panelView.ButtonClicked += () => OnPanelClicked(panelView.CommandPanelIndex);
             }
 
             _CommandChooserPresenter.CommandChose += OnCommandChose;
@@ -35,7 +35,7 @@ namespace LogiBotClone.Runtime.UI.CommandPanel
         {
             foreach (var panelView in _view.PanelViews)
             {
-                panelView.Button.onClick.RemoveAllListeners();
+                panelView.ButtonClicked -= () => OnPanelClicked(panelView.CommandPanelIndex);
             }
             
             _CommandChooserPresenter.CommandChose -= OnCommandChose;

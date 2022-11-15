@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using LogiBotClone.Runtime.UI.Command;
 using UnityEngine.UI;
 
@@ -11,10 +12,7 @@ namespace LogiBotClone.Runtime.UI.CommandPanel
             get;
         }
 
-        Button Button
-        {
-            get;
-        }
+        event Action ButtonClicked;
         
         IReadOnlyList<ICommandView> CommandViews
         {
