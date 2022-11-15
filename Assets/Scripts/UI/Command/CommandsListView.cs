@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using LogiBotClone.Runtime.UI.CommandPanel;
+﻿using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,7 +6,7 @@ namespace LogiBotClone.Runtime.UI.Command
 {
     public class CommandsListView : MonoBehaviour, ICommandList
     {
-        public Button Button => _Button;
+        public event Action ButtonClicked;
         public GameObject GameObject => gameObject;
         public int CommandPanelIndex => _commandPanelIndex;
         
@@ -17,5 +15,20 @@ namespace LogiBotClone.Runtime.UI.Command
 
         [SerializeField] 
         private int _commandPanelIndex;
+        
+        private void OnEnable()
+        {
+            _Button.onClick.AddListener(OnButtonClicked);
+        }
+
+        private void OnDisable()
+        {
+            _Button.onClick.RemoveListener(OnButtonClicked);
+        }
+
+        private void OnButtonClicked()
+        {
+            ButtonClicked?.Invoke();
+        }
     }
 }

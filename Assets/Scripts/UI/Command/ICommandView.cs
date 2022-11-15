@@ -1,15 +1,13 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace LogiBotClone.Runtime.UI.Command
 {
     public interface ICommandView
     {
-        Button Button
-        {
-            get;
-        }
-
+        event Action ButtonClicked;
+        
         GameObject GameObject
         {
             get;

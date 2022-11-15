@@ -52,7 +52,7 @@ namespace LogiBotClone.Runtime.UI.CommandPanel
             var commandView1 = _factory.Create(commandView.GameObject);
             _view.AddCommand(commandView1, _currentCommandPanelIndex);
             
-            commandView1.Button.onClick.AddListener(() => OnCommandRemove(commandView1));
+            commandView1.ButtonClicked += () => OnCommandRemove(commandView1);
         }
 
         private void OnExecuteAllCommandsButtonClicked()
@@ -84,7 +84,7 @@ namespace LogiBotClone.Runtime.UI.CommandPanel
 
         private void OnCommandRemove(ICommandView commandView)
         {
-            commandView.Button.onClick.RemoveAllListeners();
+            commandView.ButtonClicked -= () => OnCommandRemove(commandView);
             
             Destroy(commandView.GameObject);
         }

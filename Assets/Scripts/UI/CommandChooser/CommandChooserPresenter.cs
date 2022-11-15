@@ -28,7 +28,7 @@ namespace LogiBotClone.Runtime.UI.CommandChooser
         {
             foreach (var view in _view.Views)
             {
-                view.Button.onClick.AddListener( ()=> OnCommandButtonPressed(view));
+                view.ButtonClicked += ()=> OnCommandButtonPressed(view);
             }
 
             _view.ExecuteAllCommandsButton.onClick.AddListener(() => ExecuteAllCommandsButtonClicked?.Invoke());
@@ -39,7 +39,7 @@ namespace LogiBotClone.Runtime.UI.CommandChooser
         {
             foreach (var view in _view.Views)
             {
-                view.Button.onClick.RemoveAllListeners();
+                view.ButtonClicked -= ()=> OnCommandButtonPressed(view);
             }
             
             _view.ExecuteAllCommandsButton.onClick.RemoveAllListeners();
