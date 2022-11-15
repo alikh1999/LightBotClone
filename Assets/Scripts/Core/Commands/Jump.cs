@@ -13,14 +13,14 @@ namespace LogiBotClone.Runtime.Core.Commands
                 FacingAngleToNeighborTile.AngleToNeighborTileDictionary[new Angle(player.localEulerAngles.z)];
 
             var targetTile = tile.GetNeighborTile(neighborTile);
-            var executor = player.GetComponent<Executor>();
+            var tileOwner = player.GetComponent<TileOwner>();
 
-            if (targetTile == null || executor.TileOwner.Tile.Height == targetTile.Height)
+            if (targetTile == null || tileOwner.Tile.Height == targetTile.Height)
             {
                 return;
             }
             
-            executor.TileOwner.OwnTile(targetTile);
+            tileOwner.OwnTile(targetTile);
         }
     }
 }

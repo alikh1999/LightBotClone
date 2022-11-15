@@ -7,9 +7,9 @@ namespace LogiBotClone.Runtime.Core.Commands
     {
         public void Execute(Tile tile, Transform player)
         {
-            if (tile is TileGoal)
+            if (tile is TileGoal tileGoal)
             {
-                ((TileGoal)tile).HighLight();
+                tileGoal.HighLight();
             }
         }
     }
