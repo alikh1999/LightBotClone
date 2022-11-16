@@ -1,8 +1,6 @@
-﻿using System;
-using LogiBotClone.Runtime.Core.World;
+﻿using LogiBotClone.Runtime.Core.World;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace LogiBotClone.Runtime.UI
 {
