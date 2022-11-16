@@ -1,13 +1,11 @@
-﻿using UnityEngine.UI;
+﻿using System;
+using UnityEngine.UI;
 
 namespace LogiBotClone.Runtime.UI.Win
 {
     public interface IWinView
     {
-        Button NextLevelButton
-        {
-            get;
-        }
+        event Action NextLevelButtonPressed;
         void SetActive(bool activeState);
     }
 }

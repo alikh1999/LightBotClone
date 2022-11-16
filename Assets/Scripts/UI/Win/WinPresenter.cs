@@ -27,13 +27,13 @@ namespace LogiBotClone.Runtime.UI.Win
 
         private void OnEnable()
         {
-            _view.NextLevelButton.onClick.AddListener(OnNextLevelClicked);
+            _view.NextLevelButtonPressed += OnNextLevelClicked;
             _game.GameEnded += OnGameEnded;
         }
 
         private void OnDisable()
         {
-            _view.NextLevelButton.onClick.RemoveAllListeners();
+            _view.NextLevelButtonPressed -= OnNextLevelClicked;
             _game.GameEnded -= OnGameEnded;
         }
 
