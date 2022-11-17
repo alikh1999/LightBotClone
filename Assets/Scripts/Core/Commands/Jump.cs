@@ -6,13 +6,12 @@ namespace LogiBotClone.Runtime.Core.Commands
 {
     public class Jump : ICommand
     {
-        public void Execute(Tile tile, Transform player)
+        public void Execute(TileOwner tileOwner, Transform player)
         {
             var neighborTile =
                 FacingAngleToNeighborTile.AngleToNeighborTileDictionary[new Angle(player.localEulerAngles.z)];
 
-            var targetTile = tile.GetNeighborTile(neighborTile);
-            var tileOwner = player.GetComponent<TileOwner>();
+            var targetTile = tileOwner.Tile.GetNeighborTile(neighborTile);
 
             if (targetTile == null || tileOwner.Tile.Height == targetTile.Height)
             {

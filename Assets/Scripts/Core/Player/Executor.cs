@@ -18,7 +18,7 @@ namespace LogiBotClone.Runtime.Core.Player
         
         public void Execute(ICommand command)
         {
-            command.Execute(_Owner.Tile, transform);
+            command.Execute(_Owner, transform);
         }
     }
 }
