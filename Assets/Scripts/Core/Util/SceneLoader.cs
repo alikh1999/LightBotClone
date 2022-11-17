@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine.SceneManagement;
 
-namespace LogiBotClone.Runtime.Core.Utili
+namespace LogiBotClone.Runtime.Core.Util
 {
     public static class SceneLoader
     {
