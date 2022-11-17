@@ -3,11 +3,18 @@ using UnityEngine;
 
 namespace LogiBotClone.Runtime.Core.Commands
 {
-    public struct RotateToLeft : ICommand
+    public class RotateToLeft : ICommand
     {
+        protected virtual float Angle => 90;
+        
         public void Execute(TileOwner tileOwner, Transform player)
         {
-            player.Rotate(Vector3.forward, 90);
+            Rotate(player, Angle);
+        }
+
+        private void Rotate(Transform player, float angle)
+        {
+            player.Rotate(Vector3.forward, angle);
         }
     }
 }

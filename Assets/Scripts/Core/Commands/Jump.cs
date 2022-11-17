@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace LogiBotClone.Runtime.Core.Commands
 {
-    public struct Jump : ICommand
+    public class Jump : ICommand
     {
         public void Execute(TileOwner tileOwner, Transform player)
         {

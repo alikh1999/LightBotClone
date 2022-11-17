@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace LogiBotClone.Runtime.Core.Commands
 {
-    public struct Move : ICommand
+    public class Move : ICommand
     {
         public void Execute(TileOwner tileOwner, Transform player)
         {
