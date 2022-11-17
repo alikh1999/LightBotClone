@@ -1,55 +1,41 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using LogiBotClone.Runtime.Core.World;
 using UnityEngine;
 
 namespace LogiBotClone.Runtime.Core.World
 {
-    public class Game : MonoBehaviour
+    public class Game : MonoBehaviour, IGame, IEndConditionChecker
     {
+        public IReadOnlyList<TileGoal> TileGoals => tilesGoal;
         public event Action GameEnded;
-        
-        private int _unHighLightedGoalTilesCount;
 
-        private List<TileGoal> TilesGoal = new List<TileGoal>();
+        private IGameRules _gameRules;
+        
+        private List<TileGoal> tilesGoal;
+
+        public void Init(List<TileGoal> tilesGoal, List<IGameRule> gameRules)
+        {
+            this.tilesGoal = tilesGoal;
+            
+            _gameRules = new GameRules(this, gameRules);
+            _gameRules.SatisfiedRules += OnAllSatisfiedRules;
+        }
 
         private void Awake()
         {
-            TilesGoal = FindObjectsOfType<TileGoal>().ToList();
-        }
-
-        public void AddTileGoal(TileGoal tileGoal)
-        {
-            TilesGoal.Add(tileGoal);
-            tileGoal.TileHighLighted += OnGoalTileHighLighted;
-            _unHighLightedGoalTilesCount++;
+            tilesGoal = FindObjectsOfType<TileGoal>().ToList();
         }
 
         private void Start()
         {
-            _unHighLightedGoalTilesCount = TilesGoal.Count;
-            foreach (var goalTile in TilesGoal)
-            {
-                goalTile.TileHighLighted += OnGoalTileHighLighted;
-            }
+            _gameRules = new GameRules(this, new List<IGameRule>{new AllGoalTileHighLighted()});
+            _gameRules.SatisfiedRules += OnAllSatisfiedRules;
         }
 
-        private void OnDestroy()
+        private void OnAllSatisfiedRules()
         {
-            foreach (var goalTile in TilesGoal)
-            {
-                goalTile.TileHighLighted -= OnGoalTileHighLighted;
-            }
-        }
-
-        private void OnGoalTileHighLighted()
-        {
-            _unHighLightedGoalTilesCount--;
-            if (_unHighLightedGoalTilesCount <= 0)
-            {
-                GameEnded?.Invoke();
-            }
+            GameEnded?.Invoke();
         }
     }
 }
