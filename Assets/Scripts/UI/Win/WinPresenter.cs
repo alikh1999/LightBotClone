@@ -1,4 +1,4 @@
-﻿using LogiBotClone.Runtime.Core.Util;
+﻿using System;
 using LogiBotClone.Runtime.Core.Data;
 using LogiBotClone.Runtime.Core.World;
 using UnityEngine;
@@ -8,7 +8,7 @@ namespace LogiBotClone.Runtime.UI.Win
     public class WinPresenter : MonoBehaviour
     {
         private IWinView _view;
-        private int _levelNumber;
+        private Level _Level;
 
         [SerializeField] 
         private Statics _statics;
@@ -22,7 +22,7 @@ namespace LogiBotClone.Runtime.UI.Win
 
         private void Start()
         {
-            _levelNumber = PlayerPrefs.HasKey(PlayerPrefKeys.LevelNumber) ? PlayerPrefs.GetInt(PlayerPrefKeys.LevelNumber) : 1;
+            _Level = new Level(_statics.LevelsCount);
         }
 
         private void OnEnable()
@@ -39,18 +39,7 @@ namespace LogiBotClone.Runtime.UI.Win
 
         private void OnNextLevelClicked()
         {
-            _levelNumber++;
-            var nextSceneName = _levelNumber.ToString();
-
-            if (_levelNumber >= _statics.LevelsCount)
-            {
-                return;
-            }
-            
-            PlayerPrefs.SetInt(PlayerPrefKeys.LevelNumber, _levelNumber);
-            PlayerPrefs.Save();
-            
-            SceneLoader.Load(nextSceneName);
+            _Level.ChangeLevel();
         }
 
         private void OnGameEnded()
